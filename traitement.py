@@ -13,7 +13,10 @@ for k in range(1,len(lines)): #La dernière
     lines[k]=lines[k][11:26] #Traitement du reste des lignes
     lines[k]=3600*int(lines[k][0:2])+60*int(lines[k][3:5])+int(lines[k][6:8])+int(lines[k][9:15])*1E-6
     lines[k]-=lines[0] #Retranchement du la ligne 1
-    data.write(str(lines[k])) #Ecriture dans le fichier d'export
+    ckValue=int(lines[k]) #Variable test valeur
+    if ckValue%2==1: #Test de la parite de ckValue
+        print('Impair')
+    data.write(str(lines[k])) #Copie dans le fichier d'export
     data.write('\n')
 
 data.close()
